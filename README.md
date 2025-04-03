@@ -111,6 +111,87 @@ This project demonstrates several key concepts:
 7. Error Handling
 8. API Documentation
 
+## iOS Integration Guide
+
+### Authentication Headers
+For authenticated requests, include:
+```
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+```
+
+### Example Requests & Responses
+
+#### Register User
+```swift
+// Request
+POST /api/users/register
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "securepassword123"
+}
+
+// Response
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "id": "user_id",
+            "name": "John Doe",
+            "email": "john@example.com"
+        },
+        "token": "jwt_token_here"
+    }
+}
+```
+
+#### Create Task
+```swift
+// Request
+POST /api/tasks
+Header: Authorization: Bearer YOUR_JWT_TOKEN
+{
+    "title": "Complete Project",
+    "description": "Finish the iOS app",
+    "dueDate": "2025-04-10T00:00:00.000Z",
+    "category": "category_id"
+}
+
+// Response
+{
+    "status": "success",
+    "data": {
+        "task": {
+            "id": "task_id",
+            "title": "Complete Project",
+            "description": "Finish the iOS app",
+            "dueDate": "2025-04-10T00:00:00.000Z",
+            "category": "category_id",
+            "status": "pending"
+        }
+    }
+}
+```
+
+### Error Handling
+All endpoints return error responses in this format:
+```json
+{
+    "status": "error",
+    "message": "Error description here"
+}
+```
+
+Common HTTP Status Codes:
+- 200: Success
+- 201: Created
+- 400: Bad Request
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not Found
+- 500: Server Error
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
