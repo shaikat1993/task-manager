@@ -1,44 +1,44 @@
+////
+////  SceneDelegate.swift
+////  Task_Manager
+////
+////  Created by Md Sadidur Rahman on 5/4/25.
+////
 //
-//  SceneDelegate.swift
-//  Task_Manager
+//import UIKit
 //
-//  Created by Md Sadidur Rahman on 5/4/25.
+//class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
-
-import UIKit
-
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-    var window: UIWindow?
-    /// Strong reference to app coordinator
-    /// Must be retained to keep coordinator hierarchy alive
-    private var appCoordinator: AppCoordinator?
-
-    func scene(_ scene: UIScene,
-               willConnectTo session: UISceneSession,
-               options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        // Create and configure main window
-        let window = UIWindow(windowScene: windowScene)
-        
-        // Create root navigation controller
-        let navigationController = UINavigationController()
-        navigationController.setNavigationBarHidden(true, 
-                                                    animated: false)
-        
-        // Create and start app coordinator
-        let coordinator = AppCoordinator(window: window,
-                                       navigationController: navigationController)
-        
-        // Store references
-        self.window = window
-        self.appCoordinator = coordinator
-        
-        // Make window key and visible
-        window.makeKeyAndVisible()
-        
-        // Begin app flow
-        coordinator.start()
-    }
-}
+//    var window: UIWindow?
+//    /// Strong reference to app coordinator
+//    /// Must be retained to keep coordinator hierarchy alive
+//    private var appCoordinator: AppCoordinator?
+//
+//    func scene(_ scene: UIScene,
+//               willConnectTo session: UISceneSession,
+//               options connectionOptions: UIScene.ConnectionOptions) {
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        
+//        // Create and configure main window
+//        let window = UIWindow(windowScene: windowScene)
+//        
+//        // Create root navigation controller
+//        let navigationController = UINavigationController()
+//        navigationController.setNavigationBarHidden(true, 
+//                                                    animated: false)
+//        
+//        // Create and start app coordinator
+//        let coordinator = AppCoordinator(window: window,
+//                                       navigationController: navigationController)
+//        
+//        // Store references
+//        self.window = window
+//        self.appCoordinator = coordinator
+//        
+//        // Make window key and visible
+//        window.makeKeyAndVisible()
+//        
+//        // Begin app flow
+//        coordinator.start()
+//    }
+//}

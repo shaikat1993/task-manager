@@ -10,27 +10,40 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    private var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setupWindow()
         setupAppearance()
         return true
     }
     
-    func setupAppearance(){
+    private func setupWindow() {
+        // Create window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // Create root navigation controller
+        let navigationController = UINavigationController()
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        // Create and start app coordinator
+        let coordinator = AppCoordinator(window: window!,
+                                       navigationController: navigationController)
+        
+        // Store reference to coordinator
+        self.appCoordinator = coordinator
+        
+        // Begin app flow
+        coordinator.start()
+        
+        // Make window visible
+        window?.makeKeyAndVisible()
+    }
+    
+    private func setupAppearance() {
         //set global UI appearance here
         UINavigationBar.appearance().tintColor = .systemBlue
         UINavigationBar.appearance().prefersLargeTitles = true
     }
-    
-    // MARK: UISceneSession Lifecycle
-    func application(_ application: UIApplication,
-                     configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        let configuration = UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-        configuration.delegateClass = SceneDelegate.self
-        return configuration
-    }
 }
-
