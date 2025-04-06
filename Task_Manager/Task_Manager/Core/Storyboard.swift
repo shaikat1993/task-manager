@@ -7,8 +7,10 @@
 
 import Foundation
 public enum Storyboard: String {
-    case login = "Login"
-    case registration = "Registration"
+    case login          = "Login"
+    case registration   = "Registration"
+    case tasks          = "Tasks"
+    case taskDetails    = "TaskDetail"
     
     var identifier: String {
         return rawValue

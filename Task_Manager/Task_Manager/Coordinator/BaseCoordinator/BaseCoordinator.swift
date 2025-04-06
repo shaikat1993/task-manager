@@ -11,7 +11,7 @@ import UIKit
 /// Base coordinator class that implements common coordinator functionality
 /// This class serves as the foundation for all coordinators in the application
 /// providing shared behavior and state management
-class BaseCoordinator: CoordinatorProtocol {
+public class BaseCoordinator: CoordinatorProtocol {
     
     // MARK: - Properties
     /// The navigation controller used for this coordinator's flow

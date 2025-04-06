@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol AuthCoordinatorDelegate: AnyObject {
+    func authCoordinatorDidFinish()
+}
+
 /// The root coordinator of the application.
 /// Responsible for:
 /// - Initial setup of the window
@@ -41,14 +45,13 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     private func handleLaunchComplete() {
+        showMainFlow()
         // Check authentication status
-//        if TokenManager.shared.isAuthenticated {
+//        if TokenManager.shared.isLoggedIn {
 //            showMainFlow()
 //        } else {
 //            showAuthFlow()
 //        }
-        
-        showAuthFlow()
     }
     
     /// Shows the launch screen
@@ -67,7 +70,13 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     private func showMainFlow() {
-//        let coordinator = MainCoordinator(navigationController: navigationController)
-//        addChild(coordinator)
+        let coordinator = MainCoordinator(navigationController: navigationController)
+        addChild(coordinator)
+    }
+}
+
+extension AppCoordinator : AuthCoordinatorDelegate {
+    func authCoordinatorDidFinish() {
+        showMainFlow()
     }
 }

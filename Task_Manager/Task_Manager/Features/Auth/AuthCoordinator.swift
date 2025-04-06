@@ -18,6 +18,7 @@ protocol AuthCoordinatorProtocol: AnyObject {
 /// Coordinator handling authentication flow
 final class AuthCoordinator: BaseCoordinator {
     private weak var loginVC: LoginViewController?
+    weak var delegate: AuthCoordinatorDelegate?
     
     override func start() {
         showLogin()
@@ -53,7 +54,8 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
     func handleSuccessfulLogin() {
         cleanup()
         if let appCoordinator = findCoordinator() as AppCoordinator? {
-            appCoordinator.start()
+            delegate = appCoordinator
+            delegate?.authCoordinatorDidFinish()
         }
     }
 }
