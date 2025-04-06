@@ -10,7 +10,8 @@ import UIKit
 
 protocol AuthCoordinatorProtocol: AnyObject {
     func handleSuccessfulLogin()
-    func handleRegistrationRequest()
+    func handleSuccessfulRegistration()
+    func showRegistration()
     func navigateBackToLogin()
 }
 
@@ -23,23 +24,18 @@ final class AuthCoordinator: BaseCoordinator {
     }
     
     private func showLogin() {
-        let storyboard = UIStoryboard(name: "Login",
-                                      bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(
-                    withIdentifier: "LoginViewController"
-                ) as? LoginViewController else {
-                    return
-                }
         let viewModel = LoginViewModel(delegate: self)
-        viewController.viewModel = viewModel
+        let viewController = LoginViewController.instantiate(fromStoryboard: .login,
+                                                  viewModel: viewModel)
+        loginVC = viewController
         navigationController.setViewControllers([viewController], animated: false)
     }
     
-    private func showRegistration() {
-//        let viewModel = RegistrationViewModel(coordinator: self)
-//        let viewController = RegistrationViewController(viewModel: viewModel)
-//        viewController.coordinator = self
-//        push(viewController)
+    internal func showRegistration() {
+        let viewModel = RegistrationViewModel(delegate: self)
+        let viewController = RegistrationViewController.instantiate(fromStoryboard: .registration,
+                                                                    viewModel: viewModel)
+        push(viewController)
     }
     
     internal func navigateBackToLogin() {
@@ -50,14 +46,14 @@ final class AuthCoordinator: BaseCoordinator {
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
+    func handleSuccessfulRegistration() {
+        handleSuccessfulLogin()
+    }
+    
     func handleSuccessfulLogin() {
         cleanup()
         if let appCoordinator = findCoordinator() as AppCoordinator? {
             appCoordinator.start()
         }
-    }
-    
-    func handleRegistrationRequest() {
-        showRegistration()
     }
 }
