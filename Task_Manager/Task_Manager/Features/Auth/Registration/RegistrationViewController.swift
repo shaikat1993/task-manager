@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  RegistrationViewController.swift
 //  Task_Manager
 //
-//  Created by Md Sadidur Rahman on 5/4/25.
+//  Created by Md Sadidur Rahman on 6/4/25.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-

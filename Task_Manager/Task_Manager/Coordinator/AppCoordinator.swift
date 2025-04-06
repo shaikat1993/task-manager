@@ -37,29 +37,19 @@ final class AppCoordinator: BaseCoordinator {
         
     /// Starts the flow managed by the coordinator
     override func start() {
-        // for testing
-        //showAuthFlow()
-        
-        
-//        // Check authentication status
-//        if TokenManager.shared.isAuthenticated {
-//            //showMainFlow()
-//        } else {
-//            showAuthFlow()
-//        }
-        
         showLaunchScreen()
     }
     
     private func handleLaunchComplete() {
+        // Check authentication status
 //        if TokenManager.shared.isAuthenticated {
 //            showMainFlow()
 //        } else {
 //            showAuthFlow()
 //        }
+        
+        showAuthFlow()
     }
-    
-    
     
     /// Shows the launch screen
     private func showLaunchScreen(){
@@ -69,5 +59,15 @@ final class AppCoordinator: BaseCoordinator {
         }
         addChild(coordinator)
         coordinator.start()
+    }
+    
+    private func showAuthFlow() {
+        let coordinator = AuthCoordinator(navigationController: navigationController)
+        addChild(coordinator)
+    }
+    
+    private func showMainFlow() {
+//        let coordinator = MainCoordinator(navigationController: navigationController)
+//        addChild(coordinator)
     }
 }

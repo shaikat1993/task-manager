@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		72FA2BDA2D0A8E53CE2AD3F3 /* Pods_Task_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E1A5741569964727E4001 /* Pods_Task_Manager.framework */; };
+		9228BED82DA1F31D00A03F1A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228BED72DA1F31D00A03F1A /* LoginViewModel.swift */; };
+		9228BEDA2DA1F33000A03F1A /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228BED92DA1F33000A03F1A /* RegistrationViewModel.swift */; };
+		9228BEDE2DA1F35000A03F1A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9228BEDD2DA1F35000A03F1A /* Login.storyboard */; };
+		9228BEE02DA1F36000A03F1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228BEDF2DA1F36000A03F1A /* LoginViewController.swift */; };
+		9228BEE22DA1F36F00A03F1A /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9228BEE12DA1F36F00A03F1A /* Registration.storyboard */; };
+		9228BEE42DA1F37E00A03F1A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228BEE32DA1F37E00A03F1A /* RegistrationViewController.swift */; };
+		923086BC2DA1933200E6047C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923086BB2DA1933200E6047C /* AuthCoordinator.swift */; };
 		92C9EA6F2DA0976300A7EF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EA6E2DA0976300A7EF7F /* AppDelegate.swift */; };
 		92C9EA712DA0976300A7EF7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EA702DA0976300A7EF7F /* SceneDelegate.swift */; };
 		92C9EA762DA0976300A7EF7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C9EA742DA0976300A7EF7F /* Main.storyboard */; };
@@ -22,11 +29,21 @@
 		92C9EA9E2DA0BBF100A7EF7F /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EA9D2DA0BBF100A7EF7F /* LaunchViewModel.swift */; };
 		92C9EAA02DA0BE2A00A7EF7F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EA9F2DA0BE2A00A7EF7F /* LaunchViewController.swift */; };
 		92C9EAA22DA0C2A800A7EF7F /* launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C9EAA12DA0C2A800A7EF7F /* launch.json */; };
+		92D3B0F52DA29CED009F0F2A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3B0F42DA29CED009F0F2A /* UIView.swift */; };
+		92D3B0FB2DA2A46E009F0F2A /* UIButton+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3B0FA2DA2A46E009F0F2A /* UIButton+Gradient.swift */; };
+		92D3B0FD2DA2A47C009F0F2A /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3B0FC2DA2A47C009F0F2A /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F6E1A5741569964727E4001 /* Pods_Task_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		436F72233928BD40903456C3 /* Pods-Task_Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Manager.release.xcconfig"; path = "Target Support Files/Pods-Task_Manager/Pods-Task_Manager.release.xcconfig"; sourceTree = "<group>"; };
+		9228BED72DA1F31D00A03F1A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9228BED92DA1F33000A03F1A /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		9228BEDD2DA1F35000A03F1A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9228BEDF2DA1F36000A03F1A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9228BEE12DA1F36F00A03F1A /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		9228BEE32DA1F37E00A03F1A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		923086BB2DA1933200E6047C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		92C9EA6B2DA0976300A7EF7F /* Task_Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_Manager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C9EA6E2DA0976300A7EF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92C9EA702DA0976300A7EF7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +60,9 @@
 		92C9EA9D2DA0BBF100A7EF7F /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		92C9EA9F2DA0BE2A00A7EF7F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		92C9EAA12DA0C2A800A7EF7F /* launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launch.json; sourceTree = "<group>"; };
+		92D3B0F42DA29CED009F0F2A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		92D3B0FA2DA2A46E009F0F2A /* UIButton+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Gradient.swift"; sourceTree = "<group>"; };
+		92D3B0FC2DA2A47C009F0F2A /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		9E3EF46FC0186088B54D1293 /* Pods-Task_Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Manager.debug.xcconfig"; path = "Target Support Files/Pods-Task_Manager/Pods-Task_Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +84,36 @@
 				2F6E1A5741569964727E4001 /* Pods_Task_Manager.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9228BEDB2DA1F33500A03F1A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9228BED72DA1F31D00A03F1A /* LoginViewModel.swift */,
+				9228BEDF2DA1F36000A03F1A /* LoginViewController.swift */,
+				9228BEDD2DA1F35000A03F1A /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9228BEDC2DA1F33A00A03F1A /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				9228BED92DA1F33000A03F1A /* RegistrationViewModel.swift */,
+				9228BEE32DA1F37E00A03F1A /* RegistrationViewController.swift */,
+				9228BEE12DA1F36F00A03F1A /* Registration.storyboard */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		923086B92DA192DA00E6047C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9228BEDC2DA1F33A00A03F1A /* Registration */,
+				9228BEDB2DA1F33500A03F1A /* Login */,
+				923086BB2DA1933200E6047C /* AuthCoordinator.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		92C9EA622DA0976300A7EF7F = {
@@ -131,6 +181,9 @@
 		92C9EA852DA0980800A7EF7F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				92D3B0FC2DA2A47C009F0F2A /* GradientButton.swift */,
+				92D3B0FA2DA2A46E009F0F2A /* UIButton+Gradient.swift */,
+				92D3B0F42DA29CED009F0F2A /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,6 +215,7 @@
 		92C9EA892DA0984F00A7EF7F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				923086B92DA192DA00E6047C /* Auth */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -289,6 +343,8 @@
 			files = (
 				92C9EA7B2DA0976600A7EF7F /* LaunchScreen.storyboard in Resources */,
 				92C9EA782DA0976600A7EF7F /* Assets.xcassets in Resources */,
+				9228BEDE2DA1F35000A03F1A /* Login.storyboard in Resources */,
+				9228BEE22DA1F36F00A03F1A /* Registration.storyboard in Resources */,
 				92C9EA762DA0976300A7EF7F /* Main.storyboard in Resources */,
 				92C9EAA22DA0C2A800A7EF7F /* launch.json in Resources */,
 				92C9EA982DA0ABCA00A7EF7F /* Launch.storyboard in Resources */,
@@ -344,14 +400,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923086BC2DA1933200E6047C /* AuthCoordinator.swift in Sources */,
+				9228BEDA2DA1F33000A03F1A /* RegistrationViewModel.swift in Sources */,
 				92C9EA922DA0A3E900A7EF7F /* AppCoordinator.swift in Sources */,
+				9228BED82DA1F31D00A03F1A /* LoginViewModel.swift in Sources */,
+				9228BEE42DA1F37E00A03F1A /* RegistrationViewController.swift in Sources */,
 				92C9EA942DA0AB5800A7EF7F /* LaunchCoordinator.swift in Sources */,
+				92D3B0FB2DA2A46E009F0F2A /* UIButton+Gradient.swift in Sources */,
 				92C9EA902DA0A33F00A7EF7F /* BaseControllerProtocol.swift in Sources */,
 				92C9EA6F2DA0976300A7EF7F /* AppDelegate.swift in Sources */,
 				92C9EA9C2DA0B12D00A7EF7F /* BaseCoordinator.swift in Sources */,
 				92C9EA8E2DA0A11200A7EF7F /* CoordinatorProtocol.swift in Sources */,
+				92D3B0F52DA29CED009F0F2A /* UIView.swift in Sources */,
 				92C9EA712DA0976300A7EF7F /* SceneDelegate.swift in Sources */,
+				92D3B0FD2DA2A47C009F0F2A /* GradientButton.swift in Sources */,
 				92C9EAA02DA0BE2A00A7EF7F /* LaunchViewController.swift in Sources */,
+				9228BEE02DA1F36000A03F1A /* LoginViewController.swift in Sources */,
 				92C9EA9E2DA0BBF100A7EF7F /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

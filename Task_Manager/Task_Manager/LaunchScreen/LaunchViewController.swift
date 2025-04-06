@@ -32,12 +32,12 @@ class LaunchViewController: UIViewController {
     
     func setupAnimation(){
         guard let jsonPath = Bundle.main.path(forResource: "launch", ofType: "json") else {
-            //print("❌ Animation file not found at path: \(Bundle.main.bundlePath)")
+            //print("Animation file not found at path: \(Bundle.main.bundlePath)")
             return
         }
         
         // Debug print for JSON path
-        // print("✅ Found JSON at path: \(jsonPath)")
+        // print("Found JSON at path: \(jsonPath)")
         
         let animation = LottieAnimation.filepath(jsonPath)
         animationView.animation = animation
@@ -47,7 +47,7 @@ class LaunchViewController: UIViewController {
     
     func startAnimation() {
         guard let animationView = animationView else {
-            print("❌ Animation view is nil")
+            //print("Animation view is nil")
             return
         }
         animationView.play { [weak self] completed in
@@ -85,7 +85,8 @@ class LaunchViewController: UIViewController {
             message: error.localizedDescription,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", 
+                                      style: .default))
         present(alert, animated: true)
     }
 }
