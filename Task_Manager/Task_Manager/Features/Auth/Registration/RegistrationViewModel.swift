@@ -53,12 +53,38 @@ final class RegistrationViewModel {
     
     func register() {
         guard canRegister else {return}
-        isLoading = true
-        // Simulate API call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            self?.isLoading = false
-            // for testing
-            self?.delegate?.handleSuccessfulLogin()
+        
+        Task{
+            isLoading = true
+            do {
+                let response: LoginResponse = try await NetworkManager.shared.request(endpoint: 
+                                                                                        TaskManagerAPI.register(name: name,
+                                                                                                                email: email,
+                                                                                                                password: password))
+                // save token and proceed
+                TokenManager.shared.saveToken(response.token)
+                await MainActor.run {
+                    isLoading = false
+                    delegate?.handleSuccessfulRegistration()
+                }
+            } catch{
+                await MainActor.run {
+                    isLoading = false
+                    self.error = error
+                    if let networkError = error as? NetworkError {
+                        switch networkError {
+                        case .serverError(let code):
+                            if code == 409 {
+                                self.emailError = "Email already exists"
+                            } else {
+                                self.error = networkError
+                            }
+                        default:
+                            self.error = networkError
+                        }
+                    }
+                }
+            }
         }
     }
     

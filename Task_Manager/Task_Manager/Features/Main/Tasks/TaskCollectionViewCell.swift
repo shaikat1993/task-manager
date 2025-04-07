@@ -40,11 +40,14 @@ final class TaskCollectionViewCell: UICollectionViewCell {
         
         switch task.priority {
         case .low:
-            priorityView.backgroundColor = .systemGreen
+            statusLabel.textColor           = task.priority.color
+            priorityView.backgroundColor    = task.priority.color
         case .medium:
-            priorityView.backgroundColor = .systemYellow
+            statusLabel.textColor           = task.priority.color
+            priorityView.backgroundColor    = task.priority.color
         case .high:
-            priorityView.backgroundColor = .systemRed
+            statusLabel.textColor           = task.priority.color
+            priorityView.backgroundColor    = task.priority.color
         }
     }
 }

@@ -45,13 +45,13 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     private func handleLaunchComplete() {
-        showMainFlow()
+        //showMainFlow()
         // Check authentication status
-//        if TokenManager.shared.isLoggedIn {
-//            showMainFlow()
-//        } else {
-//            showAuthFlow()
-//        }
+        if TokenManager.shared.isAuthenticated {
+            showMainFlow()
+        } else {
+            showAuthFlow()
+        }
     }
     
     /// Shows the launch screen

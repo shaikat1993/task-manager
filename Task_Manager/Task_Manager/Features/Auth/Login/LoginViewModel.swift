@@ -8,6 +8,26 @@
 import Foundation
 import Combine
 
+enum LoginError: LocalizedError {
+    case invalidCredentials
+    case serverError(Int)
+    case networkError(String)
+    case validationError(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidCredentials:
+            return "Invalid email or password"
+        case .serverError(let code):
+            return "Server error: \(code)"
+        case .networkError(let message):
+            return message
+        case .validationError(let message):
+            return message
+        }
+    }
+}
+
 final class LoginViewModel {
     @Published var email = ""
     @Published var password = ""
@@ -71,10 +91,36 @@ final class LoginViewModel {
         guard canLogin else { return }
         
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.isLoading = false
-            // For testing
-            self?.delegate?.handleSuccessfulLogin()
+        
+        let endpoint = TaskManagerAPI.login(email: email,
+                                            password: password)
+        
+        NetworkManager.shared.request(endpoint: endpoint) { [weak self] (result: Result<LoginResponse, Error>) in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.isLoading = false
+                
+                switch result {
+                case .success(let response):
+                    TokenManager.shared.saveToken(response.token)
+                    self.delegate?.handleSuccessfulLogin()
+                    
+                case .failure(let error):
+                    if let networkError = error as? NetworkError {
+                        switch networkError {
+                        case .unauthorized:
+                            self.error = LoginError.invalidCredentials
+                        case .serverError(let code):
+                            self.error = LoginError.serverError(code)
+                        default:
+                            self.error = LoginError.networkError(networkError.description)
+                        }
+                    } else {
+                        self.error = LoginError.networkError(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
     

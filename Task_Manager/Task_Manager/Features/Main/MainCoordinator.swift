@@ -31,12 +31,13 @@ final class MainCoordinator: BaseCoordinator {
     }
     
     
-//    private func showTaskDetailVC(_ task: TaskModel) {
-//        let viewModel = TaskDetailViewModel(task: task, coordinator: self)
-//        let viewController = TaskDetailViewController.instantiate(fromStoryboard: .taskDetails,
-//                                                                  viewModel: viewModel)
-//        push(viewController)
-//    }
+    private func showTaskDetailVC(_ task: TaskModel) {
+        let viewModel = TaskDetailViewModel(task: task,
+                                            delegate: self)
+        let viewController = TaskDetailViewController.instantiate(fromStoryboard: .taskDetails,
+                                                                  viewModel: viewModel)
+        push(viewController)
+    }
     
     private func showLogout() {
         TokenManager.shared.cleanToken()
@@ -52,7 +53,7 @@ extension MainCoordinator: MainCoordinatorProtocol {
     }
     
     func showTaskDetail(_ task: TaskModel) {
-        //showTaskDetail(task)
+        showTaskDetailVC(task)
     }
     
     func handleLogout() {

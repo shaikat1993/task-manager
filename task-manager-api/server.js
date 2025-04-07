@@ -41,10 +41,7 @@ const categoryRoutes = require('./src/routes/categories');
 
 // MongoDB connection with retry logic
 const connectWithRetry = () => {
-    mongoose.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+    mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('MongoDB Atlas connected successfully');
     })

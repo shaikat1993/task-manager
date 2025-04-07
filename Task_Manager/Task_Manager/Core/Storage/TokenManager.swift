@@ -9,23 +9,28 @@ import Foundation
 
 final class TokenManager{
     static let shared = TokenManager()
-    private let tokenKey = "userToken"
+    private let tokenKey = "accessToken"
     
     init() { }
     
-    var isLoggedIn: Bool {
-        return token != nil
-    }
-    var token: String? {
-        get{
-            UserDefaults.standard.string(forKey: tokenKey)
-        } set{
-            UserDefaults.standard.setValue(newValue, 
-                                           forKey: tokenKey)
+    var accessToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: tokenKey)
         }
+        set {
+            UserDefaults.standard.set(newValue, forKey: tokenKey)
+        }
+    }
+    
+    func saveToken(_ token: String) {
+        accessToken = token
     }
     
     func cleanToken() {
         UserDefaults.standard.removeObject(forKey: tokenKey)
+    }
+    
+    var isAuthenticated: Bool {
+        return accessToken != nil
     }
 }
